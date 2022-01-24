@@ -10,6 +10,8 @@ public class vehiclesApp {
 	public static moto m1 = null;
 	public static camio ca1 = null;
 	public static titularVehicle t1 = null;
+	public static titularVehicle t2 = null;
+	public static int cont=0;
 
 	public static void main(String[] args) {
 		String cocheOMotoOCamio, titularONo;
@@ -34,12 +36,16 @@ public class vehiclesApp {
 		System.out.println(c1);
 		System.out.println(m1);
 		System.out.println(ca1);
+		
+		
 	}
 
 	public static void datos(String cocheOMotoOCamio) {
 		String matricula, marca, color, marcaR;
 		double diametreDevant, diametreDarrere;
 
+		System.out.println(cocheOMotoOCamio);
+		
 		// Comprovamos que la matricula
 		do {
 			matricula = JOptionPane.showInputDialog("Intoduce la matricula del vehiculo.");
@@ -74,22 +80,20 @@ public class vehiclesApp {
 	}
 
 	public static void titularVehicle() {
-
 		String nom, cognom, data, llicencia, assegurança, garatge;
 		boolean assegurançaBoo, garatgeBoo;
-
+		
+		cont++;
+		
 		nom = JOptionPane.showInputDialog("Intoduce el nombre del titular");
 		cognom = JOptionPane.showInputDialog("Intoduce el apellido del titular");
 		data = JOptionPane.showInputDialog("Intoduce la fecha de caducidad del carnet");
-		llicencia = JOptionPane.showInputDialog("Que licencia de conducir tiene?");
-
-		if (!llicencia.equals("A") || !llicencia.equals("B") || !llicencia.equals("C")) {
-			
+	
 			do {
-				llicencia = JOptionPane.showInputDialog("Pon una licencia valida");
+				llicencia = JOptionPane.showInputDialog("Que licencia tiene");
 				
-			} while (llicencia.equals("A") || llicencia.equals("B") || llicencia.equals("C"));
-		}
+			} while (!llicencia.equals("A") && !llicencia.equals("B") && !llicencia.equals("C"));
+			
 
 		assegurança = JOptionPane.showInputDialog("Intoduce si tiene asseguradora o no");
 		if (assegurança.equals("si")) {
@@ -104,6 +108,13 @@ public class vehiclesApp {
 		} else {
 			garatgeBoo = false;
 		}
+		
+		if(cont==1) {
+			t1 = new titularVehicle(nom, cognom, data, llicencia, assegurançaBoo, garatgeBoo);
+		}else if(cont==2) {
+			t2 = new titularVehicle(nom, cognom, data, llicencia, assegurançaBoo, garatgeBoo);
+		}
+		
 	}
 
 }

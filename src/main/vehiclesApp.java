@@ -37,7 +37,6 @@ public class vehiclesApp {
 		System.out.println(m1);
 		System.out.println(ca1);
 		
-		
 	}
 
 	public static void datos(String cocheOMotoOCamio) {

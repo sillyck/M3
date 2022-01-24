@@ -1,6 +1,6 @@
 package objetos;
 
-public class veiculo {
+public class vehiculo {
 
 	protected String matricula;
 	protected String marca;
@@ -9,7 +9,7 @@ public class veiculo {
 	protected double diametroDelant;
 	protected double diametroTrase;
 	
-	public veiculo(String matricula, String marca, String color, String marcaR, double diametroDelant, double diametroTrase) {
+	public vehiculo(String matricula, String marca, String color, String marcaR, double diametroDelant, double diametroTrase) {
 		this.matricula = matricula;
 		this.marca = marca;
 		this.color = color;

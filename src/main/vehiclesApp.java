@@ -18,7 +18,7 @@ public class vehiclesApp {
 	}
 
 	public static void datos(String cocheOMoto) {
-		String matricula, marca;
+		String matricula, marca, color, marcaR;
 		double diametreDevant, diametreDarrere;
 		
 		// Comprovamos que la matricula este bien
@@ -30,6 +30,8 @@ public class vehiclesApp {
 		} while (!Pattern.matches("[0-9]{4}[a-zA-Z]{2,3}", matricula));
 
 		marca = JOptionPane.showInputDialog("Intoduce la marca del vehiculo");
+		color = JOptionPane.showInputDialog("Intoduce el color del vehiculo");
+		marcaR = JOptionPane.showInputDialog("Intoduce la marca de la rueda");
 		
 		// Introducimos el diametro de las ruedas delanteras
 		do {
@@ -40,12 +42,11 @@ public class vehiclesApp {
 		do {
 			diametreDarrere = Double.parseDouble(JOptionPane.showInputDialog("Intoduce el diametro de las ruedas traseras"));
 		} while (diametreDarrere > 0.4 && diametreDarrere < 4);
-
 				
 		if (cocheOMoto.equals("coche")) {
-			c1 = new coche(matricula, "nissan", "negro", "michelin", diametreDevant, diametreDarrere);
+			c1 = new coche(matricula, marca, color, marcaR, diametreDevant, diametreDarrere);
 		} else if (cocheOMoto.equals("moto")) {
-			m1 = new moto(matricula, "nissan", "negro", "michelin", diametreDevant, diametreDarrere);
+			m1 = new moto(matricula, marca, color, marcaR, diametreDevant, diametreDarrere);
 		}
 	}
 

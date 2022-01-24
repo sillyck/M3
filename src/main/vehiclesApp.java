@@ -9,18 +9,27 @@ public class vehiclesApp {
 	public static coche c1 = null;
 	public static moto m1 = null;
 	public static camio ca1 = null;
+	public static titularVehicle t1 = null;
 
 	public static void main(String[] args) {
-		String cocheOMotoOCamio;
+		String cocheOMotoOCamio, titularONo;
+
+		titularVehicle();
 
 		do {
-			cocheOMotoOCamio = JOptionPane.showInputDialog("Que quieres introducir, Coche o Moto o Camio? (0 para salir)");
+			cocheOMotoOCamio = JOptionPane
+					.showInputDialog("Que quieres introducir, Coche o Moto o Camio? (0 para salir)");
 			if (cocheOMotoOCamio.equals("0")) {
 				break;
-			}else {
+			} else {
 				datos(cocheOMotoOCamio);
 			}
 		} while (!cocheOMotoOCamio.equals("0"));
+		
+		titularONo = JOptionPane.showInputDialog("El titular sera el conductor?");
+		if(titularONo.equals("no")) {
+			titularVehicle();
+		}
 
 		System.out.println(c1);
 		System.out.println(m1);
@@ -45,12 +54,14 @@ public class vehiclesApp {
 
 		// Introducimos el diametro de las ruedas delanteras
 		do {
-			diametreDevant = Double.parseDouble(JOptionPane.showInputDialog("Intoduce el diametro de las ruedas delanteras"));
+			diametreDevant = Double
+					.parseDouble(JOptionPane.showInputDialog("Intoduce el diametro de las ruedas delanteras"));
 		} while (diametreDevant < 0.4 && diametreDevant > 4);
 
 		// Introducimos el diametro de las ruedas traseras
 		do {
-			diametreDarrere = Double.parseDouble(JOptionPane.showInputDialog("Intoduce el diametro de las ruedas traseras"));
+			diametreDarrere = Double
+					.parseDouble(JOptionPane.showInputDialog("Intoduce el diametro de las ruedas traseras"));
 		} while (diametreDarrere < 0.4 && diametreDarrere > 4);
 
 		if (cocheOMotoOCamio.equals("coche")) {
@@ -59,6 +70,39 @@ public class vehiclesApp {
 			m1 = new moto(matricula, marca, color, marcaR, diametreDevant, diametreDarrere);
 		} else if (cocheOMotoOCamio.equals("camio")) {
 			ca1 = new camio(matricula, marca, color, marcaR, diametreDevant, diametreDarrere);
+		}
+	}
+
+	public static void titularVehicle() {
+
+		String nom, cognom, data, llicencia, assegurança, garatge;
+		boolean assegurançaBoo, garatgeBoo;
+
+		nom = JOptionPane.showInputDialog("Intoduce el nombre del titular");
+		cognom = JOptionPane.showInputDialog("Intoduce el apellido del titular");
+		data = JOptionPane.showInputDialog("Intoduce la fecha de caducidad del carnet");
+		llicencia = JOptionPane.showInputDialog("Que licencia de conducir tiene?");
+
+		if (!llicencia.equals("A") || !llicencia.equals("B") || !llicencia.equals("C")) {
+			
+			do {
+				llicencia = JOptionPane.showInputDialog("Pon una licencia valida");
+				
+			} while (llicencia.equals("A") || llicencia.equals("B") || llicencia.equals("C"));
+		}
+
+		assegurança = JOptionPane.showInputDialog("Intoduce si tiene asseguradora o no");
+		if (assegurança.equals("si")) {
+			assegurançaBoo = true;
+		} else {
+			assegurançaBoo = false;
+		}
+
+		garatge = JOptionPane.showInputDialog("Intoduce si tiene garaje o no");
+		if (garatge.equals("si")) {
+			garatgeBoo = true;
+		} else {
+			garatgeBoo = false;
 		}
 	}
 

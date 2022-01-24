@@ -18,5 +18,4 @@ public class vehiculo {
 		this.diametroTrase = diametroTrase;
 	}
 	
-	
 }

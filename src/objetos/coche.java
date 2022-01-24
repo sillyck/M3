@@ -6,5 +6,6 @@ public class coche extends vehiculo{
 		super(matricula, marca, color, marcaR, diametroDelant, diametroTrase);
 		
 	}
+	
 
 }

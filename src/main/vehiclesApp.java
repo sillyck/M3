@@ -21,7 +21,7 @@ public class vehiclesApp {
 		String matricula, marca, color, marcaR;
 		double diametreDevant, diametreDarrere;
 		
-		// Comprovamos que la matricula este bien
+		// Comprovamos que la matricula
 		do {
 			matricula = JOptionPane.showInputDialog("Intoduce la matricula del vehiculo.");
 			if (!Pattern.matches("[0-9]{4}[a-zA-Z]{2,3}", matricula)) {

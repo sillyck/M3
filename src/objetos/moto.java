@@ -7,4 +7,5 @@ public class moto extends vehiculo {
 
 	}
 
+	
 }
